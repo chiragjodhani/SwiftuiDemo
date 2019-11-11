@@ -29,7 +29,6 @@ final class SearchUserViewModel: ObservableObject {
 
         var request = URLRequest(url: urlComponents.url!)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-
         searchCancellable = URLSession.shared.dataTaskPublisher(for: request)
             .map { $0.data }
             .decode(type: SearchUserResponse.self, decoder: JSONDecoder())

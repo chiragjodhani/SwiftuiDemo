@@ -7,9 +7,10 @@ struct SearchUserRow: View {
     var body: some View {
         HStack {
             viewModel.userImages[user].map { image in
-                Image(uiImage: image)
+                Image(uiImage: image).resizable()
+                    .imageScale(.medium)
                     .frame(width: 44, height: 44)
-                    .aspectRatio(contentMode: .fit)
+                    .aspectRatio(contentMode: .fill)
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color.black, lineWidth: 1))
             }
